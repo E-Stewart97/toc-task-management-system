@@ -42,3 +42,19 @@ build/
 
 # Help file
 HELP.md
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+/data/
+/data/*.db
+toc_task_management.db
+
+# Logs
+*.log
+logs/
+
+# Application properties (if they contain sensitive data)
+# application-prod.properties
+# application-local.properties
