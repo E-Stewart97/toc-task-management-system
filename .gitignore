@@ -3,12 +3,20 @@
 *.iws
 *.iml
 *.ipr
+# Specific IntelliJ IDEA files
+.idea/shelf/
+.idea/workspace.xml
+.idea/httpRequests/
+.idea/mavenHomeManager.xml
+.idea/dataSources/
+.idea/dataSources.local.xml
 
 # Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+.mvn/wrapper/maven-wrapper.jar
 
 # STS
 .apt_generated
