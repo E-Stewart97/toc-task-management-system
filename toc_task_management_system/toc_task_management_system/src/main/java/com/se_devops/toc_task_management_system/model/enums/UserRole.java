@@ -1,12 +1,11 @@
 package com.se_devops.toc_task_management_system.model.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum UserRole {
-    ADMIN("Administrator"),
-    PROJECT_MANAGER("Project Manager"),
-    TEAM_LEAD("Team Lead"),
-    DEVELOPER("Developer"),
-    TESTER("Tester"),
-    VIEWER("Viewer");
+    ADMIN("Admin"),
+    REGULAR("Regular");
 
     private final String displayName;
 
@@ -14,15 +13,21 @@ public enum UserRole {
         this.displayName = displayName;
     }
 
-    public String getDisplayName() {
-        return displayName;
-    }
-
     public boolean hasAdminPrivileges() {
-        return this == ADMIN || this == PROJECT_MANAGER;
+        return this == ADMIN;
     }
 
     public boolean canManageTasks() {
-        return this == ADMIN || this == PROJECT_MANAGER || this == TEAM_LEAD;
+        return this == ADMIN;
     }
+
+    public boolean canViewAllTasks() {
+        return this == ADMIN;
+    }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
+
 }

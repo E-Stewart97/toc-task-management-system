@@ -4,12 +4,12 @@ import lombok.Getter;
 
 @Getter
 public enum TaskStatus {
-    BACKLOG("Backlog"),
-    TODO("To Do"),
-    IN_PROGRESS("In Progress"),
-    IN_REVIEW("In Review"),
-    DONE("Done"),
-    BLOCKED("Blocked");
+    PENDING("BACKLOG"),
+    IN_PROGRESS("TODO"),
+    COMPLETED("IN_PROGRESS"),
+    IN_REVIEW("IN_REVIEW"),
+    DONE("DONE"),
+    BLOCKED("BLOCKED");
 
     private final String displayName;
 
@@ -17,4 +17,8 @@ public enum TaskStatus {
         this.displayName = displayName;
     }
 
+    @Override
+    public String toString() {
+        return displayName;
+    }
 }

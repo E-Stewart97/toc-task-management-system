@@ -40,4 +40,5 @@ public class TimeEntry {
         this.hoursWorked = hoursWorked;
         this.entryDate = entryDate;
     }
+
 }

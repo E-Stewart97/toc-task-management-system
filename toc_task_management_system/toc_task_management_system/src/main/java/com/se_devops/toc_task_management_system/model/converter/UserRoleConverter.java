@@ -12,28 +12,18 @@ public class UserRoleConverter implements AttributeConverter<UserRole, String> {
         if (userRole == null) {
             return null;
         }
-        
-        // Map enum values to database values
-        return switch (userRole) {
-            case ADMIN -> "Admin";
-            case PROJECT_MANAGER, TEAM_LEAD, DEVELOPER, TESTER, VIEWER -> "Regular";
-        };
+        return userRole.name();
     }
 
     @Override
     public UserRole convertToEntityAttribute(String dbData) {
-        if (dbData == null) {
+        if (dbData == null || dbData.isEmpty()) {
             return null;
         }
-        
-        // Map database values to enum values
-        return switch (dbData) {
-            case "Admin" -> UserRole.ADMIN;
-            case "Regular" ->
-                // Default to DEVELOPER for Regular users
-                // This could be refined based on business requirements
-                    UserRole.DEVELOPER;
-            default -> throw new IllegalArgumentException("Unknown database value: " + dbData);
-        };
+        try {
+            return UserRole.valueOf(dbData.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("Unknown user role: " + dbData);
+        }
     }
 }

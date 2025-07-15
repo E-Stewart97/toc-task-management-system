@@ -44,4 +44,5 @@ public class User {
     public boolean canManageTasks() {
         return role != null && role.canManageTasks();
     }
+
 }

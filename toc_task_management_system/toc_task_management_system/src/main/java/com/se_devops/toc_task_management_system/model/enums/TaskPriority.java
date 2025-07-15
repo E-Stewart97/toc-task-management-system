@@ -10,11 +10,15 @@ public enum TaskPriority {
     CRITICAL("Critical", 4);
 
     private final String displayName;
-    private final int level;
+    private final int priority;
 
-    TaskPriority(String displayName, int level) {
+    TaskPriority(String displayName, int priority) {
         this.displayName = displayName;
-        this.level = level;
+        this.priority = priority;
     }
 
+    @Override
+    public String toString() {
+        return displayName;
+    }
 }
