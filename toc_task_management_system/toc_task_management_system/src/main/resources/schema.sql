@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     priority VARCHAR(10) NOT NULL CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH', 'CRITICAL')),
     user_id INTEGER,
     toc_id INTEGER NOT NULL,
-    created_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
     due_date DATE,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (toc_id) REFERENCES tocs(id)
