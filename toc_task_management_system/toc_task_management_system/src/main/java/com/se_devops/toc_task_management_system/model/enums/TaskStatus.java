@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum TaskStatus {
-    PENDING("BACKLOG"),
-    IN_PROGRESS("TODO"),
-    COMPLETED("IN_PROGRESS"),
+    BACKLOG("BACKLOG"),
+    TODO("TODO"),
+    IN_PROGRESS("IN_PROGRESS"),
     IN_REVIEW("IN_REVIEW"),
     DONE("DONE"),
     BLOCKED("BLOCKED");
