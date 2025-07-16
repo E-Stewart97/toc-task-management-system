@@ -18,8 +18,8 @@ CREATE TABLE IF NOT EXISTS tocs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
     business_code VARCHAR(10) UNIQUE NOT NULL,
-    active BOOLEAN DEFAULT TRUE
-    );
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
 
 -- 3. TASKS Table
 -- Purpose: Stores task information and assignments
