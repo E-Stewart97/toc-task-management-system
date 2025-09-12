@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: html(pageTitle='Task Details', content=~{::content})}">
+<div th:fragment="content">
+    <div class="container">
+        <a th:href="@{/dashboard}">&larr; Back to Dashboard</a>
+        <div class="card" th:object="${task}">
+            <h2 th:text="*{title}">Task Title</h2>
+            <p><strong>Status:</strong> <span th:text="*{status}" class="badge" th:classappend="'badge-' + *{status.toString().toLowerCase()}">Status</span></p>
+            <p><strong>Priority:</strong> <span th:text="*{priority}" class="badge" th:classappend="'badge-' + *{priority.toString().toLowerCase()}">Priority</span></p>
+            <p><strong>Assigned To:</strong> <strong th:text="*{assignedUser != null ? assignedUser.username : 'Unassigned'}"></strong></p>
+            <p><strong>Due Date:</strong> <span th:text="*{dueDate != null ? #temporals.format(dueDate, 'dd MMM yyyy') : 'N/A'}">Due Date</span></p>
+
+            <h3>Time Entries</h3>
+            <ul th:if="*{!timeEntries.isEmpty()}">
+                <li th:each="entry : *{timeEntries}">
+                    <span th:text="${#temporals.format(entry.startTime, 'yyyy-MM-dd HH:mm')}"></span>
+                    - <span th:text="${entry.endTime != null ? #temporals.format(entry.endTime, 'HH:mm') : 'Ongoing'}"></span>
+                </li>
+            </ul>
+            <p th:if="*{timeEntries.isEmpty()}">No time entries logged for this task yet.</p>
+        </div>
+    </div>
+</div>
+</html>

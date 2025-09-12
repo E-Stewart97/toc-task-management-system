@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: html(pageTitle='Access Denied', content=~{::content})}">
+<div th:fragment="content">
+    <div class="container error-page" style="text-align: center;">
+        <h2>🚫 Access Denied</h2>
+        <p>Sorry, you do not have permission to view this page.</p>
+        <a th:href="@{/dashboard}">Return to Dashboard</a>
+    </div>
+</div>
+</html>
