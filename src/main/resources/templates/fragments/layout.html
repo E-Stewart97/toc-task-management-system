@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle} ?: 'TOC System'">TOC System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>TOC Management System</h1>
+    <nav>
+        <a th:href="@{/dashboard}">Dashboard</a>
+        <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/dashboard}" style="color: #f1c40f; font-weight: bold;">Admin Panel</a>
+        <span sec:authorize="isAuthenticated()">
+            Welcome, <b sec:authentication="name">User</b>!
+            <form th:action="@{/logout}" method="post" style="display:inline;">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        </span>
+    </nav>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Container for Success and Error Messages -->
+        <div th:if="${successMessage}" class="alert alert-success" role="alert">
+            <p th:text="${successMessage}"></p>
+        </div>
+        <div th:if="${errorMessage}" class="alert alert-danger" role="alert">
+            <p th:text="${errorMessage}"></p>
+        </div>
+    </div>
+    <div th:replace="${content}"></div>
+</main>
+
+<footer>
+    <p>&copy; 2025 TOC System</p>
+</footer>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,22 +1,7 @@
-# Ignore IntelliJ IDEA files
-.idea/
-*.iws
-*.iml
-*.ipr
-# Specific IntelliJ IDEA files
-.idea/shelf/
-.idea/workspace.xml
-.idea/httpRequests/
-.idea/mavenHomeManager.xml
-.idea/dataSources/
-.idea/dataSources.local.xml
-
-# Maven
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-.mvn/wrapper/maven-wrapper.jar
 
 # STS
 .apt_generated
@@ -26,6 +11,12 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+# IntelliJ IDEA
+.idea
+*.iws
+*.iml
+*.ipr
 
 # NetBeans
 /nbproject/private/
@@ -56,5 +47,3 @@ toc_task_management.db
 logs/
 
 # Application properties (if they contain sensitive data)
-# application-prod.properties
-# application-local.properties

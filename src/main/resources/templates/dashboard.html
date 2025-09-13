@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: html(pageTitle='Dashboard', content=~{::content})}">
+<div th:fragment="content">
+    <div class="container">
+        <h2>My Dashboard</h2>
+
+        <div class="card">
+            <h3>Create New Table of Contents (TOC)</h3>
+            <form th:action="@{/tocs/new}" th:object="${newToc}" method="post" class="toc-form">
+                <div class="form-group">
+                    <input type="text" th:field="*{title}" placeholder="New TOC Title">
+                    <div class="error-text" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" th:field="*{businessCode}" placeholder="Business Code (e.g., HX)">
+                    <div class="error-text" th:if="${#fields.hasErrors('businessCode')}" th:errors="*{businessCode}"></div>
+                </div>
+                <button type="submit">Create TOC</button>
+            </form>
+        </div>
+
+        <div th:if="${tocs.isEmpty()}">
+            <p>You have no TOCs. Create one to get started!</p>
+        </div>
+        <div th:each="toc : ${tocs}" class="toc-card card">
+            <div class="toc-header">
+                <h3 th:text="${toc.title}">TOC Title</h3>
+                <span th:if="${!toc.active}" class="badge-inactive">INACTIVE</span>
+                <form th:action="@{/tocs/delete/{id}(id=${toc.id})}" method="post" class="confirm-delete"
+                      data-confirm-message="Are you sure? This will delete all tasks within it.">
+                    <button type="submit" class="delete-button">Delete TOC</button>
+                </form>
+            </div>
+
+            <ul>
+                <li th:each="task : ${toc.tasks}" class="task-item">
+                    <div>
+                        <a th:href="@{/tasks/{id}(id=${task.id})}" th:text="${task.title}">Task Title</a>
+                        <br>
+                        <small>
+                            <span th:text="${task.priority}" class="badge" th:classappend="'badge-' + ${task.priority.toString().toLowerCase()}">PRIORITY</span>
+                            <span th:text="${task.status}" class="badge" th:classappend="'badge-' + ${task.status.toString().toLowerCase()}">STATUS</span>
+                            Assigned to: <strong th:text="${task.assignedUser != null ? task.assignedUser.username : 'Unassigned'}"></strong>
+                        </small>
+                    </div>
+                    <div class="task-actions">
+                        <a th:href="@{/tasks/edit/{id}(id=${task.id})}" class="edit-button">Edit</a>
+                        <form th:action="@{/tasks/delete/{id}(id=${task.id})}" method="post" class="confirm-delete"
+                              data-confirm-message="Delete this task?">
+                            <button type="submit" class="delete-button-small">✖</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+
+            <form th:action="@{/tasks/new}" th:object="${newTask}" method="post" class="task-form">
+                <input type="hidden" name="tocId" th:value="${toc.id}">
+                <div class="form-group">
+                    <label>Task Title</label>
+                    <input type="text" th:field="*{title}" placeholder="New Task Title">
+                    <div class="error-text" th:if="${errorInTocId == toc.id and #fields.hasErrors('title')}" th:errors="*{title}"></div>
+                </div>
+                <div class="form-group">
+                    <label>Priority</label>
+                    <select th:field="*{priority}">
+                        <option th:each="p : ${T(com.se_devops.tocsystem.model.TaskPriority).values()}" th:value="${p}" th:text="${p}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Assign To</label>
+                    <select th:field="*{assignedUser}">
+                        <option value="">Unassigned</option>
+                        <option th:each="u : ${users}" th:value="${u.id}" th:text="${u.username}"></option>
+                    </select>
+                </div>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+</div>
+</html>
