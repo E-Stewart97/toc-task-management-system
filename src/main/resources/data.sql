@@ -8,18 +8,17 @@ DELETE FROM users;
 DELETE FROM sqlite_sequence WHERE name IN ('users', 'tocs', 'tasks', 'time_entries');
 
 -- ===================================================================
--- INSERT SAMPLE USERS
--- Passwords are 'adminpass', 'userpass', 'pass1', 'pass2', 'pass3'
+-- INSERT SAMPLE USERS WITH UPDATED BCRYPT PASSWORDS
 -- ===================================================================
--- Passwords for all users are 'password'
+-- admin password: 'adminpass'
+-- user password: 'userpass'
+-- Other users password: 'password'
 INSERT INTO users (username, password, role) VALUES
-                                                 ('admin', '$2a$10$g.fS.trawg8pY659V1dG/eTGrgQz2/okp1gjvMv5oTThRTjV2CqjS', 'ADMIN'),
-                                                 ('user', '$2a$10$g.fS.trawg8pY659V1dG/eTGrgQz2/okp1gjvMv5oTThRTjV2CqjS', 'REGULAR'),
-                                                 ('j.doe', '$2a$10$g.fS.trawg8pY659V1dG/eTGrgQz2/okp1gjvMv5oTThRTjV2CqjS', 'REGULAR'),
-                                                 ('s.smith', '$2a$10$g.fS.trawg8pY659V1dG/eTGrgQz2/okp1gjvMv5oTThRTjV2CqjS', 'REGULAR'),
-                                                 ('m.jones', '$2a$10$g.fS.trawg8pY659V1dG/eTGrgQz2/okp1gjvMv5oTThRTjV2CqjS', 'REGULAR');
-
-
+                                                 ('admin', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'ADMIN'),
+                                                 ('user', '$2a$10$VRjy2NbsBdz0DPXvlhGu2eO.MWW/q9bWgP8YBThfVpWQFrF8AhU/K', 'REGULAR'),
+                                                 ('j.doe', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR'),
+                                                 ('s.smith', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR'),
+                                                 ('m.jones', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR');
 
 -- ===================================================================
 -- INSERT SAMPLE TOCs (TABLE OF CONTENTS)
