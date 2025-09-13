@@ -28,6 +28,10 @@ jobs:
           java-version: '21' # Your pom.xml specifies Java 21
           distribution: 'temurin'
 
-      # Step 3: Build the project and run the tests with Maven
+      # Step 3: Grant execute permission to mvnw
+      - name: Grant execute permission for mvnw
+        run: chmod +x mvnw
+
+      # Step 4: Build the project and run the tests with Maven
       - name: Build and Test with Maven
         run: ./mvnw clean install
