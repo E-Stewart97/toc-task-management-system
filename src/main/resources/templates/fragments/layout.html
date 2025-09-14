@@ -12,7 +12,7 @@
         <a th:href="@{/dashboard}">Dashboard</a>
         <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/dashboard}" style="color: #f1c40f; font-weight: bold;">Admin Panel</a>
         <span sec:authorize="isAuthenticated()">
-            Welcome, <b sec:authentication="name">User</b>!
+            Welcome, <b sec:authentication="name">User</b>
             <form th:action="@{/logout}" method="post" style="display:inline;">
                 <button type="submit" class="logout-button">Logout</button>
             </form>

@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <label for="status">Status</label>
                     <select id="status" th:field="*{status}">
-                        <option th:each="s : ${T(com.se_devops.tocsystem.model.TaskStatus).values()}"
+                        <option th:each="s : ${T(com.se_devops.tocsystem.model.enums.TaskStatus).values()}"
                                 th:value="${s}" th:text="${s}"></option>
                     </select>
                 </div>
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="priority">Priority</label>
                     <select id="priority" th:field="*{priority}">
-                        <option th:each="p : ${T(com.se_devops.tocsystem.model.TaskPriority).values()}"
+                        <option th:each="p : ${T(com.se_devops.tocsystem.model.enums.TaskPriority).values()}"
                                 th:value="${p}" th:text="${p}"></option>
                     </select>
                 </div>
