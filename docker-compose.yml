@@ -4,14 +4,7 @@ services:
     build: .
     ports:
       - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:sqlite:/app/data/toc_system.db
-    depends_on:
-      - db
-
-  db:
-    image: nouchka/sqlite3:latest
     volumes:
       - ./data:/app/data
-    stdin_open: true
-    tty: true
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlite:/app/data/toc_system.db
