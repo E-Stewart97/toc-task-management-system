@@ -5,7 +5,7 @@ import com.se_devops.tocsystem.model.enums.TaskStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -27,7 +27,7 @@ public class Task {
     @Column(nullable = false)
     private TaskPriority priority;
 
-    private LocalDate dueDate;
+    private LocalDateTime dueDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "toc_id", nullable = false)
@@ -73,11 +73,11 @@ public class Task {
         this.priority = priority;
     }
 
-    public LocalDate getDueDate() {
+    public LocalDateTime getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(LocalDateTime dueDate) {
         this.dueDate = dueDate;
     }
 

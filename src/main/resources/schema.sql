@@ -27,7 +27,7 @@ CREATE TABLE tasks (
                        title VARCHAR(100) NOT NULL,
                        status VARCHAR(20) NOT NULL CHECK (status IN ('BACKLOG', 'TODO', 'IN_PROGRESS', 'IN_REVIEW', 'DONE', 'BLOCKED')),
                        priority VARCHAR(10) NOT NULL CHECK (priority IN ('LOW', 'MEDIUM', 'HIGH', 'CRITICAL')),
-                       due_date DATE,
+                       due_date DATETIME,
                        toc_id INTEGER NOT NULL,
                        user_id INTEGER, -- The user this task is assigned to
                        FOREIGN KEY (toc_id) REFERENCES tocs (id) ON DELETE CASCADE,

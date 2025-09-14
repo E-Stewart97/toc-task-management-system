@@ -14,11 +14,11 @@ DELETE FROM sqlite_sequence WHERE name IN ('users', 'tocs', 'tasks', 'time_entri
 -- user password: 'userpass'
 -- Other users password: 'password'
 INSERT INTO users (username, password, role) VALUES
-                                                 ('admin', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'ADMIN'),
-                                                 ('user', '$2a$10$VRjy2NbsBdz0DPXvlhGu2eO.MWW/q9bWgP8YBThfVpWQFrF8AhU/K', 'REGULAR'),
-                                                 ('j.doe', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR'),
-                                                 ('s.smith', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR'),
-                                                 ('m.jones', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2uheWG/igi.', 'REGULAR');
+                                                 ('admin', '$2a$12$U/J36Zj3LlfnHigM90ea8.R.s.2Y5fEDO2SWH0BLwdl1xXLnJNbUK', 'ADMIN'),
+                                                 ('user', '$2a$12$hpGXBoshFVqPDqh/0DVpqe2pZGf5j1KVftJraz6Jpy1DOYdAVwB0m', 'REGULAR'),
+                                                 ('j.doe', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR'),
+                                                 ('s.smith', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR'),
+                                                 ('m.jones', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR');
 
 -- ===================================================================
 -- INSERT SAMPLE TOCs (TABLE OF CONTENTS)
@@ -36,16 +36,16 @@ INSERT INTO tocs (title, business_code, user_id, active) VALUES
 -- INSERT SAMPLE TASKS
 -- ===================================================================
 INSERT INTO tasks (title, status, priority, due_date, toc_id, user_id) VALUES
-                                                                           ('Track Maintenance Schedule', 'IN_PROGRESS', 'HIGH', '2025-07-15', 1, 3),
-                                                                           ('Driver Rota Planning', 'TODO', 'MEDIUM', '2025-07-10', 1, 4),
-                                                                           ('On-board Catering Stocktake', 'DONE', 'LOW', '2025-06-20', 2, 2),
-                                                                           ('Customer Feedback Analysis', 'IN_REVIEW', 'MEDIUM', '2025-07-01', 2, 2),
-                                                                           ('Signal Failure Investigation', 'BLOCKED', 'CRITICAL', '2025-07-05', 3, 1),
-                                                                           ('New Ticket Machine Rollout', 'IN_PROGRESS', 'HIGH', '2025-07-18', 4, 3),
-                                                                           ('Passport Checkpoint Staffing', 'DONE', 'MEDIUM', '2025-06-30', 5, 3),
-                                                                           ('Platform Screen Door Install', 'BACKLOG', 'HIGH', '2025-07-18', 6, 4),
-                                                                           ('Update Timetable Displays', 'TODO', 'LOW', '2025-07-12', 6, 4),
-                                                                           ('Station WiFi Upgrade', 'IN_PROGRESS', 'MEDIUM', '2025-07-16', 7, 5);
+                                                                           ('Track Maintenance Schedule', 'IN_PROGRESS', 'HIGH', '2025-07-15 00:00:00', 1, 3),
+                                                                           ('Driver Rota Planning', 'TODO', 'MEDIUM', '2025-07-10 00:00:00', 1, 4),
+                                                                           ('On-board Catering Stocktake', 'DONE', 'LOW', '2025-06-20 00:00:00', 2, 2),
+                                                                           ('Customer Feedback Analysis', 'IN_REVIEW', 'MEDIUM', '2025-07-01 00:00:00', 2, 2),
+                                                                           ('Signal Failure Investigation', 'BLOCKED', 'CRITICAL', '2025-07-05 00:00:00', 3, 1),
+                                                                           ('New Ticket Machine Rollout', 'IN_PROGRESS', 'HIGH', '2025-07-18 00:00:00', 4, 3),
+                                                                           ('Passport Checkpoint Staffing', 'DONE', 'MEDIUM', '2025-06-30 00:00:00', 5, 3),
+                                                                           ('Platform Screen Door Install', 'BACKLOG', 'HIGH', '2025-07-18 00:00:00', 6, 4),
+                                                                           ('Update Timetable Displays', 'TODO', 'LOW', '2025-07-12 00:00:00', 6, 4),
+                                                                           ('Station WiFi Upgrade', 'IN_PROGRESS', 'MEDIUM', '2025-07-16 00:00:00', 7, 5);
 
 -- ===================================================================
 -- INSERT SAMPLE TIME ENTRIES
