@@ -1,6 +1,7 @@
 package com.se_devops.tocsystem.controller;
 
 import com.se_devops.tocsystem.model.Task;
+import com.se_devops.tocsystem.model.TimeEntry;
 import com.se_devops.tocsystem.service.TaskService;
 import com.se_devops.tocsystem.service.UserService;
 import jakarta.validation.Valid;
@@ -33,6 +34,8 @@ public class TaskController {
     public String viewTask(@PathVariable Integer taskId, Model model, Principal principal) {
         Task task = taskService.findByIdAndUsername(taskId, principal.getName());
         model.addAttribute("task", task);
+        // Add an empty TimeEntry object for the "Log New Time Entry" form
+        model.addAttribute("newTimeEntry", new TimeEntry());
         return "task-details";
     }
 

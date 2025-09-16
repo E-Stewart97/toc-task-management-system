@@ -9,16 +9,44 @@
             <p><strong>Status:</strong> <span th:text="*{status}" class="badge" th:classappend="'badge-' + *{status.toString().toLowerCase()}">Status</span></p>
             <p><strong>Priority:</strong> <span th:text="*{priority}" class="badge" th:classappend="'badge-' + *{priority.toString().toLowerCase()}">Priority</span></p>
             <p><strong>Assigned To:</strong> <strong th:text="*{assignedUser != null ? assignedUser.username : 'Unassigned'}"></strong></p>
-            <p><strong>Due Date:</strong> <span th:text="*{dueDate != null ? #temporals.format(dueDate, 'dd MMM yyyy') : 'N/A'}">Due Date</span></p>
+            <p><strong>Due Date:</strong> <span th:text="*{dueDate != null ? #temporals.format(dueDate, 'dd MMM yyyy, HH:mm') : 'N/A'}">Due Date</span></p>
 
+            <hr style="margin: 2rem 0;">
             <h3>Time Entries</h3>
-            <ul th:if="*{!timeEntries.isEmpty()}">
-                <li th:each="entry : *{timeEntries}">
-                    <span th:text="${#temporals.format(entry.startTime, 'yyyy-MM-dd HH:mm')}"></span>
-                    - <span th:text="${entry.endTime != null ? #temporals.format(entry.endTime, 'HH:mm') : 'Ongoing'}"></span>
+
+            <ul th:if="*{!timeEntries.isEmpty()}" class="time-entry-list">
+                <li th:each="entry : *{timeEntries}" class="task-item">
+                    <div>
+                        <strong>Start:</strong> <span th:text="${#temporals.format(entry.startTime, 'yyyy-MM-dd HH:mm')}"></span>
+                        <br>
+                        <strong>End:</strong> <span th:text="${entry.endTime != null ? #temporals.format(entry.endTime, 'yyyy-MM-dd HH:mm') : 'Ongoing'}"></span>
+                    </div>
+                    <form th:action="@{/time-entries/delete/{id}(id=${entry.id})}" method="post" class="confirm-delete"
+                          data-confirm-message="Delete this time entry?">
+                        <input type="hidden" name="taskId" th:value="${task.id}" />
+                        <button type="submit" class="delete-button-small">✖</button>
+                    </form>
                 </li>
             </ul>
             <p th:if="*{timeEntries.isEmpty()}">No time entries logged for this task yet.</p>
+
+            <div class="card" style="margin-top: 2rem;">
+                <h4>Log New Time Entry</h4>
+                <form th:action="@{/time-entries/new}" th:object="${newTimeEntry}" method="post" class="edit-form">
+                    <input type="hidden" name="taskId" th:value="${task.id}" />
+                    <div class="form-group">
+                        <label for="startTime">Start Time</label>
+                        <input type="datetime-local" id="startTime" th:field="*{startTime}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTime">End Time (optional)</label>
+                        <input type="datetime-local" id="endTime" th:field="*{endTime}" class="form-control">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="button-primary">Add Entry</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
