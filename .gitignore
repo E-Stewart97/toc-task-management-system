@@ -1,9 +1,12 @@
+# Compiled class files
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+bin/
 
-# STS
+# Log files
+*.log
+logs/
+
+# STS / Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -11,6 +14,12 @@ target/
 .settings
 .springBeans
 .sts4-cache
+.metadata
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
 
 # IntelliJ IDEA
 .idea
@@ -30,20 +39,3 @@ build/
 
 # VS Code
 .vscode/
-
-# Help file
-HELP.md
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-/data/
-/data/*.db
-toc_task_management.db
-
-# Logs
-*.log
-logs/
-
-# Application properties (if they contain sensitive data)
