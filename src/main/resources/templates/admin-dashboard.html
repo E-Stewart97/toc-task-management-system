@@ -31,8 +31,14 @@
                 </div>
                 <ul>
                     <li th:each="task : ${toc.tasks}" class="task-item">
-                        <span th:text="${task.title}">Task Title</span>
-                        - <span th:text="${task.status}">Status</span>
+                        <div>
+                            <span th:text="${task.title}">Task Title</span>
+                            - <span th:text="${task.status}">Status</span>
+                        </div>
+                        <form th:action="@{/admin/tasks/delete/{id}(id=${task.id})}" method="post" class="confirm-delete"
+                              data-confirm-message="ADMIN ACTION: Are you sure you want to delete this specific task?">
+                            <button type="submit" class="delete-button-small">✖</button>
+                        </form>
                     </li>
                 </ul>
             </div>

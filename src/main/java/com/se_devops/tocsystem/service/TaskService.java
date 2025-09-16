@@ -69,4 +69,15 @@ public class TaskService {
         Task task = findByIdAndUsername(taskId, username);
         taskRepository.delete(task);
     }
+
+    /**
+     * CRU[D] - Admin-only delete operation without ownership checks.
+     */
+    @Transactional
+    public void deleteTaskAsAdmin(Integer taskId) throws RuntimeException {
+        if (!taskRepository.existsById(taskId)) {
+            throw new RuntimeException("Task not found with id: " + taskId);
+        }
+        taskRepository.deleteById(taskId);
+    }
 }
