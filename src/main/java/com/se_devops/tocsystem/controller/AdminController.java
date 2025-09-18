@@ -39,15 +39,14 @@ public class AdminController {
     @PostMapping("/tocs/delete/{id}")
     public String deleteTocAsAdmin(@PathVariable Integer id, RedirectAttributes redirectAttributes) {
         tocService.deleteByIdAsAdmin(id);
-        redirectAttributes.addFlashAttribute("successMessage", "TOC deleted successfully."); // Optional: Add feedback
+        redirectAttributes.addFlashAttribute("successMessage", "TOC deleted successfully.");
         return "redirect:/admin/dashboard";
     }
 
-    // ADD THIS NEW METHOD
     @PostMapping("/tasks/delete/{taskId}")
     public String deleteTaskAsAdmin(@PathVariable Integer taskId, RedirectAttributes redirectAttributes) {
         taskService.deleteTaskAsAdmin(taskId);
-        redirectAttributes.addFlashAttribute("successMessage", "Task deleted successfully."); // Optional: Add feedback
+        redirectAttributes.addFlashAttribute("successMessage", "Task deleted successfully.");
         return "redirect:/admin/dashboard";
     }
 }

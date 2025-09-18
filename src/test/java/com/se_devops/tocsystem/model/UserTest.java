@@ -30,9 +30,9 @@ public class UserTest {
         user.setRole(Role.ADMIN);
         assertEquals(Role.ADMIN, user.getRole());
 
-        assertNull(user.getId()); // ID should be null initially
-        assertNull(user.getTocs()); // TOCs list should be null initially
-        assertNull(user.getAssignedTasks()); // Assigned tasks should be null initially
+        assertNull(user.getId());
+        assertNull(user.getTocs());
+        assertNull(user.getAssignedTasks());
     }
 
     @Test

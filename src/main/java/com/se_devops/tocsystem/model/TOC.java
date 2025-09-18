@@ -32,7 +32,6 @@ public class TOC {
     @OneToMany(mappedBy = "toc", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }

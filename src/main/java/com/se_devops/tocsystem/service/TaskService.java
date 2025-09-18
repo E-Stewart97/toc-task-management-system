@@ -48,7 +48,6 @@ public class TaskService {
         TOC toc = tocService.findByIdAndUsername(tocId, username); // Security check
         task.setToc(toc);
 
-        // Handle assignment of user
         if (task.getAssignedUser() != null && task.getAssignedUser().getId() != null) {
             User assignedUser = userService.findById(task.getAssignedUser().getId())
                     .orElseThrow(() -> new RuntimeException("Assigned user not found"));

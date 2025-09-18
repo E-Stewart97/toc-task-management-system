@@ -1,7 +1,7 @@
 package com.se_devops.tocsystem.controller;
 
 import com.se_devops.tocsystem.config.SecurityConfig;
-import com.se_devops.tocsystem.service.CustomUserDetailsService; // <-- ADD THIS IMPORT
+import com.se_devops.tocsystem.service.CustomUserDetailsService;
 import com.se_devops.tocsystem.service.TOCService;
 import com.se_devops.tocsystem.service.TaskService;
 import com.se_devops.tocsystem.service.UserService;

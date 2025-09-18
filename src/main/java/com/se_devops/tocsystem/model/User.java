@@ -77,5 +77,3 @@ public class User {
         this.assignedTasks = assignedTasks;
     }
 }
-//Admin: admin / adminpass
-//Regular User: user / userpass

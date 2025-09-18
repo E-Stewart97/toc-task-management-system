@@ -9,16 +9,12 @@ public class TimeEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private LocalDateTime startTime;
-
     private LocalDateTime endTime;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id", nullable = false)
     private Task task;
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }

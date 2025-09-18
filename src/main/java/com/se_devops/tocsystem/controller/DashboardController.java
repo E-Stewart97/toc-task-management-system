@@ -36,9 +36,8 @@ public class DashboardController {
             model.addAttribute("newTask", new Task());
         }
 
-        // Add data needed for the view
         model.addAttribute("tocs", tocService.findTocsForUser(principal.getName()));
-        model.addAttribute("users", userService.findAll()); // For the 'Assign To' dropdown
+        model.addAttribute("users", userService.findAll());
         return "dashboard";
     }
 }

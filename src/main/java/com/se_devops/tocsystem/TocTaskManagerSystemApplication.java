@@ -9,5 +9,4 @@ public class TocTaskManagerSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(TocTaskManagerSystemApplication.class, args);
     }
-
 }
