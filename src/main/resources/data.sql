@@ -10,15 +10,12 @@ DELETE FROM sqlite_sequence WHERE name IN ('users', 'tocs', 'tasks', 'time_entri
 -- ===================================================================
 -- INSERT SAMPLE USERS WITH UPDATED BCRYPT PASSWORDS
 -- ===================================================================
--- admin password: 'adminpass'
--- user password: 'userpass'
--- Other users password: 'password'
 INSERT INTO users (username, password, role) VALUES
-                                                 ('admin', '$2a$12$U/J36Zj3LlfnHigM90ea8.R.s.2Y5fEDO2SWH0BLwdl1xXLnJNbUK', 'ADMIN'),
-                                                 ('user', '$2a$12$hpGXBoshFVqPDqh/0DVpqe2pZGf5j1KVftJraz6Jpy1DOYdAVwB0m', 'REGULAR'),
-                                                 ('j.doe', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR'),
-                                                 ('s.smith', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR'),
-                                                 ('m.jones', '$2a$12$GcLtmFEMLtz.TwxypCd36uR.pbGcP5ceErgmL4HHP5vuolI5jv9SG', 'REGULAR');
+                                                 ('admin', '$2y$10$Hl8MW30cz9cIEUf2gaZwFOOmpin35s/9.Gd1dda1JaCZJJoh11DFO', 'ADMIN'),
+                                                 ('user', '$2y$10$cy.bFpE5spy9nhkD0FwQOegmtsYz6gso.h.bDMhIK6WBPcFdlO1zG', 'REGULAR'),
+                                                 ('j.doe', '$2y$10$hQlbGgNJd0UZt75iIW0MEeQJ1iJUupqLuN.3/p1W.cmlEcl8KNdHe', 'REGULAR'),
+                                                 ('s.smith', '$2y$10$2BKXEVyYq1XboBK8EjSjZep7pEiex2TrvdWIzYONazHFYgC6P8gq6', 'REGULAR'),
+                                                 ('m.jones', '$2y$10$.u0UG7bRUwXb6Nkl/0RN6exAugguvHBQoJ5k1vwnM42GpETwa0hYS', 'REGULAR');
 
 -- ===================================================================
 -- INSERT SAMPLE TOCs (TABLE OF CONTENTS)
